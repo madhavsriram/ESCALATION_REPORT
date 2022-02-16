@@ -1,0 +1,1434 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Alias="Common" Namespace="com.sap.vocabularies.Common.v1"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/UI.xml" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Alias="UI" Namespace="com.sap.vocabularies.UI.v1"/>
+    </edmx:Reference>
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="Reports" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityContainer Name="EntityContainer" m:IsDefaultEntityContainer="true">
+                <EntitySet Name="CreditReqHdr" EntityType="Reports.CreditReqHdr"/>
+                <EntitySet Name="CreditReqItem" EntityType="Reports.CreditReqItem"/>
+                <EntitySet Name="Region" EntityType="Reports.Region"/>
+                <EntitySet Name="User" EntityType="Reports.User"/>
+                <EntitySet Name="ReportPara" EntityType="Reports.ReportPara"/>
+                <EntitySet Name="ReportSample" EntityType="Reports.ReportSample"/>
+                <EntitySet Name="Report_Submit_to_Under_Review" EntityType="Reports.Report_Submit_to_Under_Review"/>
+                <EntitySet Name="Report_Under_Review_to_Closed" EntityType="Reports.Report_Under_Review_to_Closed"/>
+                <EntitySet Name="PSInvoiceHdr" EntityType="Reports.PSInvoiceHdr"/>
+                <EntitySet Name="Address" EntityType="Reports.Address"/>
+                <EntitySet Name="Attachment" EntityType="Reports.Attachment"/>
+                <EntitySet Name="CRCommit" EntityType="Reports.CRCommit"/>
+                <EntitySet Name="PSInvoiceItems" EntityType="Reports.PSInvoiceItems"/>
+                <EntitySet Name="AttachmentRow" EntityType="Reports.AttachmentRow"/>
+                <EntitySet Name="AttachmentPIssue" EntityType="Reports.AttachmentPIssue"/>
+                <EntitySet Name="ProductIssue" EntityType="Reports.ProductIssue"/>
+                <AssociationSet Name="CreditReqHdr_PSInvoiceHdr" Association="Reports.CreditReqHdr_PSInvoiceHdr">
+                    <End Role="CreditReqHdr" EntitySet="CreditReqHdr"/>
+                    <End Role="PSInvoiceHdr" EntitySet="PSInvoiceHdr"/>
+                </AssociationSet>
+                <AssociationSet Name="CreditReqHdr_Address" Association="Reports.CreditReqHdr_Address">
+                    <End Role="CreditReqHdr" EntitySet="CreditReqHdr"/>
+                    <End Role="Address" EntitySet="Address"/>
+                </AssociationSet>
+                <AssociationSet Name="CreditReqHdr_AttachmentId" Association="Reports.CreditReqHdr_AttachmentId">
+                    <End Role="CreditReqHdr" EntitySet="CreditReqHdr"/>
+                    <End Role="Attachment" EntitySet="Attachment"/>
+                </AssociationSet>
+                <AssociationSet Name="CreditReqHdr_CSR" Association="Reports.CreditReqHdr_CSR">
+                    <End Role="CreditReqHdr" EntitySet="CreditReqHdr"/>
+                    <End Role="User" EntitySet="User"/>
+                </AssociationSet>
+                <AssociationSet Name="CreditReqItem_BTPCRNo" Association="Reports.CreditReqItem_BTPCRNo">
+                    <End Role="CreditReqItem" EntitySet="CreditReqItem"/>
+                    <End Role="CreditReqHdr" EntitySet="CreditReqHdr"/>
+                </AssociationSet>
+                <AssociationSet Name="ReportSample_CreditReqItem" Association="Reports.ReportSample_CreditReqItem">
+                    <End Role="ReportSample" EntitySet="ReportSample"/>
+                    <End Role="CreditReqItem" EntitySet="CreditReqItem"/>
+                </AssociationSet>
+                <AssociationSet Name="Report_Submit_to_Under_Review_CreditReqItem" Association="Reports.Report_Submit_to_Under_Review_CreditReqItem">
+                    <End Role="Report_Submit_to_Under_Review" EntitySet="Report_Submit_to_Under_Review"/>
+                    <End Role="CreditReqItem" EntitySet="CreditReqItem"/>
+                </AssociationSet>
+                <AssociationSet Name="Report_Under_Review_to_Closed_CreditReqItem" Association="Reports.Report_Under_Review_to_Closed_CreditReqItem">
+                    <End Role="Report_Under_Review_to_Closed" EntitySet="Report_Under_Review_to_Closed"/>
+                    <End Role="CreditReqItem" EntitySet="CreditReqItem"/>
+                </AssociationSet>
+                <AssociationSet Name="Address_RegionId" Association="Reports.Address_RegionId">
+                    <End Role="Address" EntitySet="Address"/>
+                    <End Role="Region" EntitySet="Region"/>
+                </AssociationSet>
+                <AssociationSet Name="Attachment_CreditReqItem" Association="Reports.Attachment_CreditReqItem">
+                    <End Role="Attachment" EntitySet="Attachment"/>
+                    <End Role="CreditReqItem" EntitySet="CreditReqItem"/>
+                </AssociationSet>
+                <AssociationSet Name="CRCommit_CRNO" Association="Reports.CRCommit_CRNO">
+                    <End Role="CRCommit" EntitySet="CRCommit"/>
+                    <End Role="CreditReqHdr" EntitySet="CreditReqHdr"/>
+                </AssociationSet>
+                <AssociationSet Name="CRCommit_CreditReqItem" Association="Reports.CRCommit_CreditReqItem">
+                    <End Role="CRCommit" EntitySet="CRCommit"/>
+                    <End Role="CreditReqItem" EntitySet="CreditReqItem"/>
+                </AssociationSet>
+                <AssociationSet Name="PSInvoiceItems_PsplInvoice" Association="Reports.PSInvoiceItems_PsplInvoice">
+                    <End Role="PSInvoiceItems" EntitySet="PSInvoiceItems"/>
+                    <End Role="PSInvoiceHdr" EntitySet="PSInvoiceHdr"/>
+                </AssociationSet>
+                <AssociationSet Name="AttachmentRow_AttachmentID" Association="Reports.AttachmentRow_AttachmentID">
+                    <End Role="AttachmentRow" EntitySet="AttachmentRow"/>
+                    <End Role="Attachment" EntitySet="Attachment"/>
+                </AssociationSet>
+                <AssociationSet Name="AttachmentPIssue_ProductIssue" Association="Reports.AttachmentPIssue_ProductIssue">
+                    <End Role="AttachmentPIssue" EntitySet="AttachmentPIssue"/>
+                    <End Role="ProductIssue" EntitySet="ProductIssue"/>
+                </AssociationSet>
+                <AssociationSet Name="AttachmentPIssue_AttachmentID" Association="Reports.AttachmentPIssue_AttachmentID">
+                    <End Role="AttachmentPIssue" EntitySet="AttachmentPIssue"/>
+                    <End Role="Attachment" EntitySet="Attachment"/>
+                </AssociationSet>
+            </EntityContainer>
+            <EntityType Name="CreditReqHdr">
+                <Key>
+                    <PropertyRef Name="BTPCRNO"/>
+                    <PropertyRef Name="OrgStrucEleCode_Id"/>
+                </Key>
+                <Property Name="createdAt" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
+                <Property Name="modifiedAt" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
+                <Property Name="BTPCRNO" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="CRDocDate" Type="Edm.DateTime" sap:display-format="Date"/>
+                <NavigationProperty Name="PSInvoiceHdr" Relationship="Reports.CreditReqHdr_PSInvoiceHdr" FromRole="CreditReqHdr" ToRole="PSInvoiceHdr"/>
+                <Property Name="PSInvoiceHdr_PsplInvoice" Type="Edm.String" MaxLength="30"/>
+                <Property Name="DeliveryFee" Type="Edm.Decimal" Scale="2" Precision="18"/>
+                <Property Name="AccessCR" Type="Edm.String" MaxLength="15"/>
+                <Property Name="DomicasCR" Type="Edm.String" MaxLength="15"/>
+                <Property Name="SAPCR" Type="Edm.String" MaxLength="10"/>
+                <Property Name="DomicasSO" Type="Edm.String" MaxLength="15"/>
+                <Property Name="SAPSO" Type="Edm.String" MaxLength="10"/>
+                <Property Name="SalesOrderNo" Type="Edm.String" MaxLength="30"/>
+                <Property Name="ChangedBy" Type="Edm.String" MaxLength="30"/>
+                <Property Name="ChangedDateTime" Type="Edm.DateTimeOffset"/>
+                <Property Name="CreatedDateTime" Type="Edm.DateTimeOffset"/>
+                <Property Name="SCC_Id" Type="Edm.Int32"/>
+                <Property Name="SCC_RegionId" Type="Edm.Int32"/>
+                <Property Name="Store_Id" Type="Edm.Int32"/>
+                <Property Name="Franchise_Id" Type="Edm.Int32"/>
+                <Property Name="PSInvoiceFrnId" Type="Edm.String" MaxLength="30"/>
+                <Property Name="PSInvoiceStoreId" Type="Edm.String" MaxLength="30"/>
+                <Property Name="Accountant_Id" Type="Edm.Int32"/>
+                <Property Name="Accountant_RegionId_Id" Type="Edm.Int32"/>
+                <Property Name="SubmissionDateTime" Type="Edm.DateTimeOffset"/>
+                <Property Name="UnderReviewDateTime" Type="Edm.DateTimeOffset"/>
+                <Property Name="ClosedDateTime" Type="Edm.DateTimeOffset"/>
+                <Property Name="CancelledDateTime" Type="Edm.DateTimeOffset"/>
+                <Property Name="ApprovedDateTime" Type="Edm.DateTimeOffset"/>
+                <Property Name="RejectionDateTime" Type="Edm.DateTimeOffset"/>
+                <Property Name="SubmittedBy" Type="Edm.String" MaxLength="30"/>
+                <Property Name="ObjectType_Id" Type="Edm.Int32"/>
+                <Property Name="StatusCode_Id" Type="Edm.Int32"/>
+                <Property Name="StatusCode_ObjectType_Id" Type="Edm.Int32"/>
+                <NavigationProperty Name="Address" Relationship="Reports.CreditReqHdr_Address" FromRole="CreditReqHdr" ToRole="Address"/>
+                <Property Name="Address_Id" Type="Edm.Guid"/>
+                <Property Name="Address_AddressName" Type="Edm.String" MaxLength="40"/>
+                <Property Name="DocTotal" Type="Edm.Decimal" Scale="2" Precision="18"/>
+                <Property Name="TaxTotal" Type="Edm.Decimal" Scale="2" Precision="18"/>
+                <Property Name="ApprovalDocTotal" Type="Edm.Decimal" Scale="2" Precision="18"/>
+                <Property Name="OpenDocTotal" Type="Edm.Decimal" Scale="2" Precision="18"/>
+                <Property Name="Remark" Type="Edm.String" MaxLength="100"/>
+                <Property Name="OrgStrucEleCode_Id" Type="Edm.Int32" Nullable="false"/>
+                <NavigationProperty Name="AttachmentId" Relationship="Reports.CreditReqHdr_AttachmentId" FromRole="CreditReqHdr" ToRole="Attachment"/>
+                <Property Name="AttachmentId_AttachmentId" Type="Edm.Guid"/>
+                <Property Name="CRInvNo" Type="Edm.String" MaxLength="30"/>
+                <Property Name="CRInvDate" Type="Edm.DateTime" sap:display-format="Date"/>
+                <Property Name="Flag" Type="Edm.String" MaxLength="1"/>
+                <NavigationProperty Name="CreditReqItem" Relationship="Reports.CreditReqItem_BTPCRNo" FromRole="CreditReqHdr" ToRole="CreditReqItem"/>
+                <NavigationProperty Name="CSR" Relationship="Reports.CreditReqHdr_CSR" FromRole="CreditReqHdr" ToRole="User"/>
+                <Property Name="CSR_UserId" Type="Edm.String" MaxLength="30"/>
+                <Property Name="CSR_OrgStruEleCode_Id" Type="Edm.Int32"/>
+                <Property Name="CSR_DepartmentId_Id" Type="Edm.Int32"/>
+            </EntityType>
+            <EntityType Name="CreditReqItem">
+                <Key>
+                    <PropertyRef Name="BTPCRItem"/>
+                </Key>
+                <Property Name="createdAt" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
+                <Property Name="modifiedAt" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
+                <NavigationProperty Name="BTPCRNo" Relationship="Reports.CreditReqItem_BTPCRNo" FromRole="CreditReqItem" ToRole="CreditReqHdr"/>
+                <Property Name="BTPCRNo_BTPCRNO" Type="Edm.Int32"/>
+                <Property Name="BTPCRNo_OrgStrucEleCode_Id" Type="Edm.Int32"/>
+                <Property Name="BTPCRItem" Type="Edm.Guid" Nullable="false"/>
+                <Property Name="Material" Type="Edm.String" MaxLength="50"/>
+                <Property Name="Description" Type="Edm.String" MaxLength="150"/>
+                <Property Name="Qty" Type="Edm.Int32"/>
+                <Property Name="UnitPrice" Type="Edm.Decimal" Scale="2" Precision="18"/>
+                <Property Name="Tax" Type="Edm.Decimal" Scale="2" Precision="18"/>
+                <Property Name="Total" Type="Edm.Decimal" Scale="2" Precision="18"/>
+                <Property Name="ObjectType_Id" Type="Edm.Int32"/>
+                <Property Name="StatusCode_Id" Type="Edm.Int32"/>
+                <Property Name="StatusCode_ObjectType_Id" Type="Edm.Int32"/>
+                <Property Name="ApproveQty" Type="Edm.Int32"/>
+                <Property Name="OpenQty" Type="Edm.Int32"/>
+                <Property Name="StoreComment" Type="Edm.String" MaxLength="200"/>
+                <Property Name="SCCComment" Type="Edm.String" MaxLength="200"/>
+                <Property Name="Comment" Type="Edm.String" MaxLength="200"/>
+                <Property Name="PSInvoiceQty" Type="Edm.Int32"/>
+                <Property Name="UnitCost" Type="Edm.Decimal" Scale="2" Precision="18"/>
+                <Property Name="UnitFreight" Type="Edm.Decimal" Scale="2" Precision="18"/>
+                <Property Name="UOM" Type="Edm.String" MaxLength="8"/>
+                <Property Name="TaxAmount" Type="Edm.Decimal" Scale="2" Precision="18"/>
+                <Property Name="PsplInvoice" Type="Edm.String" MaxLength="30"/>
+                <Property Name="PsplRowID" Type="Edm.Int32"/>
+                <Property Name="CRType_Id" Type="Edm.Int32"/>
+                <NavigationProperty Name="Attachment" Relationship="Reports.Attachment_CreditReqItem" FromRole="CreditReqItem" ToRole="Attachment"/>
+                <Property Name="ItemType" Type="Edm.String" MaxLength="10"/>
+                <Property Name="ProductType" Type="Edm.String" MaxLength="50"/>
+                <NavigationProperty Name="CRCommit" Relationship="Reports.CRCommit_CreditReqItem" FromRole="CreditReqItem" ToRole="CRCommit"/>
+                <Property Name="CRTypeDesc" Type="Edm.String" MaxLength="30"/>
+            </EntityType>
+            <EntityType Name="Region">
+                <Key>
+                    <PropertyRef Name="Id"/>
+                </Key>
+                <Property Name="createdAt" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
+                <Property Name="modifiedAt" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
+                <Property Name="Id" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="RegionName" Type="Edm.String" MaxLength="30"/>
+                <NavigationProperty Name="Address" Relationship="Reports.Address_RegionId" FromRole="Region" ToRole="Address"/>
+                <Property Name="Active" Type="Edm.String" MaxLength="1"/>
+                <Property Name="RegionHead" Type="Edm.String" MaxLength="30"/>
+                <Property Name="PsId" Type="Edm.String" MaxLength="20"/>
+                <Property Name="SAPId" Type="Edm.String" MaxLength="20"/>
+            </EntityType>
+            <EntityType Name="User">
+                <Key>
+                    <PropertyRef Name="UserId"/>
+                    <PropertyRef Name="OrgStruEleCode_Id"/>
+                    <PropertyRef Name="DepartmentId_Id"/>
+                </Key>
+                <Property Name="createdAt" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
+                <Property Name="modifiedAt" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
+                <Property Name="UserId" Type="Edm.String" MaxLength="30" Nullable="false"/>
+                <Property Name="Prefix" Type="Edm.String" MaxLength="8"/>
+                <Property Name="FirstName" Type="Edm.String" MaxLength="30"/>
+                <Property Name="LastName" Type="Edm.String" MaxLength="30"/>
+                <Property Name="Sufix" Type="Edm.String" MaxLength="10"/>
+                <Property Name="OrgStruEleCode_Id" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="UserGroup_Id" Type="Edm.Int32"/>
+                <Property Name="UserGroup_OrgStrucEleCode_Id" Type="Edm.Int32"/>
+                <Property Name="DepartmentId_Id" Type="Edm.Int32" Nullable="false"/>
+            </EntityType>
+            <EntityType Name="ReportPara">
+                <Key>
+                    <PropertyRef Name="Id"/>
+                </Key>
+                <Property Name="createdAt" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
+                <Property Name="modifiedAt" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
+                <Property Name="Id" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="Description" Type="Edm.String" MaxLength="120"/>
+                <Property Name="UserGroup_Id" Type="Edm.Int32"/>
+                <Property Name="UserGroup_OrgStrucEleCode_Id" Type="Edm.Int32"/>
+                <Property Name="UnderReviewHRS" Type="Edm.Int32"/>
+                <Property Name="ClosedHRS" Type="Edm.Int32"/>
+                <Property Name="Active" Type="Edm.String" MaxLength="1"/>
+            </EntityType>
+            <EntityType Name="ReportSample">
+                <Key>
+                    <PropertyRef Name="BTPCRNO"/>
+                </Key>
+                <Property Name="BTPCRNO" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="OrgStrucEleCode_Id" Type="Edm.Int32"/>
+                <NavigationProperty Name="CreditReqItem" Relationship="Reports.ReportSample_CreditReqItem" FromRole="ReportSample" ToRole="CreditReqItem"/>
+                <Property Name="StoreID" Type="Edm.Int32"/>
+                <Property Name="StoreName" Type="Edm.String" MaxLength="40"/>
+                <Property Name="SCCID" Type="Edm.Int32"/>
+                <Property Name="SCCName" Type="Edm.String" MaxLength="30"/>
+                <Property Name="RegionId" Type="Edm.Int32"/>
+                <Property Name="RegionName" Type="Edm.String" MaxLength="30"/>
+                <Property Name="FranchiseID" Type="Edm.Int32"/>
+                <Property Name="FranchiseName" Type="Edm.String" MaxLength="40"/>
+                <Property Name="PsplInvoice" Type="Edm.String" MaxLength="30"/>
+                <Property Name="InvoiceDate" Type="Edm.DateTime" sap:display-format="Date"/>
+                <Property Name="SalesOrder" Type="Edm.String" MaxLength="30"/>
+                <Property Name="CRDocDate" Type="Edm.DateTime" sap:display-format="Date"/>
+                <Property Name="StatusID" Type="Edm.Int32"/>
+                <Property Name="StatusDescription" Type="Edm.String" MaxLength="30"/>
+                <Property Name="ApprovedDateTime" Type="Edm.DateTimeOffset"/>
+                <Property Name="RejectionDateTime" Type="Edm.DateTimeOffset"/>
+                <Property Name="CreatedDateTime" Type="Edm.DateTimeOffset"/>
+                <Property Name="UnderReviewDateTime" Type="Edm.DateTimeOffset"/>
+                <Property Name="ClosedDateTime" Type="Edm.DateTimeOffset"/>
+                <Property Name="CancelledDateTime" Type="Edm.DateTimeOffset"/>
+                <Property Name="SubmissionDateTime" Type="Edm.DateTimeOffset"/>
+                <Property Name="SubmissionDiff" Type="Edm.Int32"/>
+                <Property Name="ClosedDiff" Type="Edm.Int32"/>
+                <Property Name="CancelledDiff" Type="Edm.Int32"/>
+                <Property Name="UserID" Type="Edm.String" MaxLength="50"/>
+            </EntityType>
+            <EntityType Name="Report_Submit_to_Under_Review">
+                <Key>
+                    <PropertyRef Name="BTPCRNO"/>
+                </Key>
+                <Property Name="StoreID" Type="Edm.Int32"/>
+                <Property Name="StoreName" Type="Edm.String" MaxLength="40"/>
+                <Property Name="SCCID" Type="Edm.Int32"/>
+                <Property Name="SCCName" Type="Edm.String" MaxLength="30"/>
+                <Property Name="RegionId" Type="Edm.Int32"/>
+                <Property Name="RegionName" Type="Edm.String" MaxLength="30"/>
+                <Property Name="FranchiseID" Type="Edm.Int32"/>
+                <Property Name="FranchiseName" Type="Edm.String" MaxLength="40"/>
+                <Property Name="PsplInvoice" Type="Edm.String" MaxLength="30"/>
+                <Property Name="InvoiceDate" Type="Edm.DateTime" sap:display-format="Date"/>
+                <Property Name="SalesOrder" Type="Edm.String" MaxLength="30"/>
+                <Property Name="BTPCRNO" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="OrgStrucEleCode_Id" Type="Edm.Int32"/>
+                <Property Name="CRDocDate" Type="Edm.DateTime" sap:display-format="Date"/>
+                <Property Name="StatusID" Type="Edm.Int32"/>
+                <Property Name="StatusDescription" Type="Edm.String" MaxLength="30"/>
+                <Property Name="ApprovedDateTime" Type="Edm.DateTimeOffset"/>
+                <Property Name="RejectionDateTime" Type="Edm.DateTimeOffset"/>
+                <Property Name="CreatedDateTime" Type="Edm.DateTimeOffset"/>
+                <Property Name="UnderReviewDateTime" Type="Edm.DateTimeOffset"/>
+                <Property Name="ClosedDateTime" Type="Edm.DateTimeOffset"/>
+                <Property Name="CancelledDateTime" Type="Edm.DateTimeOffset"/>
+                <Property Name="SubmissionDateTime" Type="Edm.DateTimeOffset"/>
+                <Property Name="SubmissionDiff" Type="Edm.Int32"/>
+                <Property Name="ClosedDiff" Type="Edm.Int32"/>
+                <Property Name="CancelledDiff" Type="Edm.Int32"/>
+                <NavigationProperty Name="CreditReqItem" Relationship="Reports.Report_Submit_to_Under_Review_CreditReqItem" FromRole="Report_Submit_to_Under_Review" ToRole="CreditReqItem"/>
+            </EntityType>
+            <EntityType Name="Report_Under_Review_to_Closed">
+                <Key>
+                    <PropertyRef Name="BTPCRNO"/>
+                </Key>
+                <Property Name="StoreID" Type="Edm.Int32"/>
+                <Property Name="StoreName" Type="Edm.String" MaxLength="40"/>
+                <Property Name="SCCID" Type="Edm.Int32"/>
+                <Property Name="SCCName" Type="Edm.String" MaxLength="30"/>
+                <Property Name="RegionId" Type="Edm.Int32"/>
+                <Property Name="RegionName" Type="Edm.String" MaxLength="30"/>
+                <Property Name="FranchiseID" Type="Edm.Int32"/>
+                <Property Name="FranchiseName" Type="Edm.String" MaxLength="40"/>
+                <Property Name="PsplInvoice" Type="Edm.String" MaxLength="30"/>
+                <Property Name="InvoiceDate" Type="Edm.DateTime" sap:display-format="Date"/>
+                <Property Name="SalesOrder" Type="Edm.String" MaxLength="30"/>
+                <Property Name="BTPCRNO" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="OrgStrucEleCode_Id" Type="Edm.Int32"/>
+                <Property Name="CRDocDate" Type="Edm.DateTime" sap:display-format="Date"/>
+                <Property Name="StatusID" Type="Edm.Int32"/>
+                <Property Name="StatusDescription" Type="Edm.String" MaxLength="30"/>
+                <Property Name="ApprovedDateTime" Type="Edm.DateTimeOffset"/>
+                <Property Name="RejectionDateTime" Type="Edm.DateTimeOffset"/>
+                <Property Name="CreatedDateTime" Type="Edm.DateTimeOffset"/>
+                <Property Name="UnderReviewDateTime" Type="Edm.DateTimeOffset"/>
+                <Property Name="ClosedDateTime" Type="Edm.DateTimeOffset"/>
+                <Property Name="CancelledDateTime" Type="Edm.DateTimeOffset"/>
+                <Property Name="SubmissionDateTime" Type="Edm.DateTimeOffset"/>
+                <Property Name="SubmissionDiff" Type="Edm.Int32"/>
+                <Property Name="ClosedDiff" Type="Edm.Int32"/>
+                <Property Name="CancelledDiff" Type="Edm.Int32"/>
+                <NavigationProperty Name="CreditReqItem" Relationship="Reports.Report_Under_Review_to_Closed_CreditReqItem" FromRole="Report_Under_Review_to_Closed" ToRole="CreditReqItem"/>
+            </EntityType>
+            <EntityType Name="PSInvoiceHdr">
+                <Key>
+                    <PropertyRef Name="PsplInvoice"/>
+                </Key>
+                <Property Name="createdAt" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
+                <Property Name="modifiedAt" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
+                <Property Name="PsplInvoice" Type="Edm.String" MaxLength="30" Nullable="false"/>
+                <Property Name="PSInvoiceID_Id" Type="Edm.Int32"/>
+                <Property Name="InvoiveType" Type="Edm.String" MaxLength="5"/>
+                <Property Name="SCCId" Type="Edm.String" MaxLength="20"/>
+                <Property Name="SCCDesc" Type="Edm.String" MaxLength="50"/>
+                <Property Name="StoreId" Type="Edm.String" MaxLength="15"/>
+                <Property Name="StoreDesc" Type="Edm.String" MaxLength="50"/>
+                <Property Name="FranchiseId" Type="Edm.String" MaxLength="30"/>
+                <Property Name="FranchiseDesc" Type="Edm.String" MaxLength="50"/>
+                <Property Name="AccountantId" Type="Edm.String" MaxLength="20"/>
+                <Property Name="AccountantDesc" Type="Edm.String" MaxLength="30"/>
+                <Property Name="InvoiceDate" Type="Edm.DateTime" sap:display-format="Date"/>
+                <Property Name="InvoiceTime" Type="Edm.Time"/>
+                <Property Name="PlannedDelivery" Type="Edm.DateTimeOffset"/>
+                <Property Name="ActualDelivery" Type="Edm.DateTimeOffset"/>
+                <Property Name="Description" Type="Edm.String" MaxLength="50"/>
+                <Property Name="DeliveryFee" Type="Edm.Decimal" Scale="2" Precision="18"/>
+                <Property Name="TotalAmt" Type="Edm.Decimal" Scale="2" Precision="23"/>
+                <Property Name="Status" Type="Edm.String" MaxLength="15"/>
+                <Property Name="BTPCrNo" Type="Edm.Int32"/>
+                <Property Name="AccessCR" Type="Edm.String" MaxLength="15"/>
+                <Property Name="DomicasCR" Type="Edm.String" MaxLength="15"/>
+                <Property Name="SAPCR" Type="Edm.String" MaxLength="10"/>
+                <Property Name="SalesOrderNo" Type="Edm.String" MaxLength="30"/>
+                <Property Name="TaxAmount" Type="Edm.Decimal" Scale="2" Precision="18"/>
+                <Property Name="TotalFreight" Type="Edm.Decimal" Scale="2" Precision="18"/>
+                <Property Name="NoOfItems" Type="Edm.Int32"/>
+                <Property Name="SubAmt" Type="Edm.Decimal" Scale="2" Precision="18"/>
+                <Property Name="CreditReqItem" Type="Edm.String" MaxLength="12"/>
+                <Property Name="LC_ID" Type="Edm.String" MaxLength="6"/>
+                <Property Name="BillingCurrency" Type="Edm.String" MaxLength="3"/>
+                <Property Name="EntryType" Type="Edm.String" MaxLength="5"/>
+                <NavigationProperty Name="PSInvoiceItems" Relationship="Reports.PSInvoiceItems_PsplInvoice" FromRole="PSInvoiceHdr" ToRole="PSInvoiceItems"/>
+                <Property Name="code" Type="Edm.String" MaxLength="10"/>
+                <Property Name="message" Type="Edm.String" MaxLength="50"/>
+                <Property Name="target" Type="Edm.String" MaxLength="50"/>
+            </EntityType>
+            <EntityType Name="Address">
+                <Key>
+                    <PropertyRef Name="Id"/>
+                    <PropertyRef Name="AddressName"/>
+                </Key>
+                <Property Name="createdAt" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
+                <Property Name="modifiedAt" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
+                <Property Name="Id" Type="Edm.Guid" Nullable="false"/>
+                <Property Name="AddressName" Type="Edm.String" MaxLength="40" Nullable="false"/>
+                <Property Name="AddressType" Type="Edm.String" MaxLength="20"/>
+                <Property Name="AddressLine_1" Type="Edm.String" MaxLength="55"/>
+                <Property Name="AddressLine_2" Type="Edm.String" MaxLength="55"/>
+                <Property Name="City" Type="Edm.String" MaxLength="30"/>
+                <Property Name="State" Type="Edm.String" MaxLength="30"/>
+                <Property Name="Country" Type="Edm.String" MaxLength="30"/>
+                <Property Name="ZipCode" Type="Edm.Int32"/>
+                <Property Name="Create_UpdateCR" Type="Edm.String" MaxLength="10"/>
+                <Property Name="StoreId_Id" Type="Edm.Int32"/>
+                <NavigationProperty Name="RegionId" Relationship="Reports.Address_RegionId" FromRole="Address" ToRole="Region"/>
+                <Property Name="RegionId_Id" Type="Edm.Int32"/>
+                <Property Name="SCCId_Id" Type="Edm.Int32"/>
+                <Property Name="SCCId_RegionId" Type="Edm.Int32"/>
+                <Property Name="FranchiseId_Id" Type="Edm.Int32"/>
+            </EntityType>
+            <EntityType Name="Attachment">
+                <Key>
+                    <PropertyRef Name="AttachmentId"/>
+                </Key>
+                <Property Name="createdAt" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
+                <Property Name="modifiedAt" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
+                <Property Name="AttachmentId" Type="Edm.Guid" Nullable="false"/>
+                <Property Name="CRType_Id" Type="Edm.Int32"/>
+                <Property Name="DamageId_Id" Type="Edm.Int32"/>
+                <Property Name="LotCode" Type="Edm.String" MaxLength="30"/>
+                <Property Name="Comment" Type="Edm.String" MaxLength="150"/>
+                <Property Name="ExpDate" Type="Edm.DateTime" sap:display-format="Date"/>
+                <Property Name="DeliveryDate" Type="Edm.DateTime" sap:display-format="Date"/>
+                <Property Name="ExpirationDate" Type="Edm.DateTime" sap:display-format="Date"/>
+                <Property Name="Reason" Type="Edm.String" MaxLength="50"/>
+                <Property Name="ProductName_Id" Type="Edm.Int32"/>
+                <Property Name="MfgDate" Type="Edm.DateTime" sap:display-format="Date"/>
+                <Property Name="UseByDate" Type="Edm.DateTime" sap:display-format="Date"/>
+                <Property Name="JulianDate" Type="Edm.DateTime" sap:display-format="Date"/>
+                <Property Name="BestBeforeDate" Type="Edm.DateTime" sap:display-format="Date"/>
+                <Property Name="ChangedBy" Type="Edm.String" MaxLength="30"/>
+                <Property Name="ChangedOn" Type="Edm.DateTimeOffset"/>
+                <Property Name="CreatedOn" Type="Edm.DateTimeOffset"/>
+                <Property Name="Classification" Type="Edm.String" MaxLength="20"/>
+                <NavigationProperty Name="AttachmentRow" Relationship="Reports.AttachmentRow_AttachmentID" FromRole="Attachment" ToRole="AttachmentRow"/>
+                <NavigationProperty Name="CreditReqItem" Relationship="Reports.Attachment_CreditReqItem" FromRole="Attachment" ToRole="CreditReqItem"/>
+                <Property Name="CreditReqItem_BTPCRItem" Type="Edm.Guid"/>
+                <NavigationProperty Name="AttachmentPIssue" Relationship="Reports.AttachmentPIssue_AttachmentID" FromRole="Attachment" ToRole="AttachmentPIssue"/>
+            </EntityType>
+            <EntityType Name="CRCommit">
+                <Key>
+                    <PropertyRef Name="Id"/>
+                    <PropertyRef Name="CRNO_BTPCRNO"/>
+                    <PropertyRef Name="CRNO_OrgStrucEleCode_Id"/>
+                </Key>
+                <Property Name="createdAt" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
+                <Property Name="modifiedAt" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
+                <Property Name="Id" Type="Edm.Int32" Nullable="false"/>
+                <NavigationProperty Name="CRNO" Relationship="Reports.CRCommit_CRNO" FromRole="CRCommit" ToRole="CreditReqHdr"/>
+                <Property Name="CRNO_BTPCRNO" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="CRNO_OrgStrucEleCode_Id" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="RowId" Type="Edm.Int32"/>
+                <Property Name="ChangedBy" Type="Edm.String" MaxLength="30"/>
+                <Property Name="ChangedOn" Type="Edm.DateTimeOffset"/>
+                <Property Name="CreatedOn" Type="Edm.DateTimeOffset"/>
+                <Property Name="Comment" Type="Edm.String" MaxLength="150"/>
+                <Property Name="UserType" Type="Edm.String" MaxLength="20"/>
+                <Property Name="Material" Type="Edm.String" MaxLength="50"/>
+                <NavigationProperty Name="CreditReqItem" Relationship="Reports.CRCommit_CreditReqItem" FromRole="CRCommit" ToRole="CreditReqItem"/>
+                <Property Name="CreditReqItem_BTPCRItem" Type="Edm.Guid"/>
+            </EntityType>
+            <EntityType Name="PSInvoiceItems">
+                <Key>
+                    <PropertyRef Name="Id"/>
+                </Key>
+                <Property Name="createdAt" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
+                <Property Name="modifiedAt" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
+                <Property Name="Id" Type="Edm.Guid" Nullable="false"/>
+                <NavigationProperty Name="PsplInvoice" Relationship="Reports.PSInvoiceItems_PsplInvoice" FromRole="PSInvoiceItems" ToRole="PSInvoiceHdr"/>
+                <Property Name="PsplInvoice_PsplInvoice" Type="Edm.String" MaxLength="30"/>
+                <Property Name="InvoiveType" Type="Edm.String" MaxLength="5"/>
+                <Property Name="RowID" Type="Edm.Int32"/>
+                <Property Name="ItemNo" Type="Edm.String" MaxLength="18"/>
+                <Property Name="Description" Type="Edm.String" MaxLength="120"/>
+                <Property Name="Qty" Type="Edm.Int32"/>
+                <Property Name="UnitPrice" Type="Edm.Decimal" Scale="2" Precision="17"/>
+                <Property Name="UnitCost" Type="Edm.Decimal" Scale="2" Precision="23"/>
+                <Property Name="UnitFreight" Type="Edm.Decimal" Scale="2" Precision="18"/>
+                <Property Name="UnitTax" Type="Edm.Decimal" Scale="2" Precision="23"/>
+                <Property Name="UOM" Type="Edm.String" MaxLength="8"/>
+                <Property Name="TrgBTPCRNo" Type="Edm.String" MaxLength="20"/>
+                <Property Name="TrgBTPCRRowId" Type="Edm.String" MaxLength="20"/>
+                <Property Name="OpenQty" Type="Edm.Decimal" Scale="0" Precision="18"/>
+                <Property Name="NetAmt" Type="Edm.Decimal" Scale="2" Precision="23"/>
+                <Property Name="LineTotal" Type="Edm.Decimal" Scale="2" Precision="18"/>
+                <Property Name="LineNumber" Type="Edm.Int32"/>
+                <Property Name="InvoiceSequenceNumber" Type="Edm.Int32"/>
+                <Property Name="SalesOrderNo" Type="Edm.String" MaxLength="30"/>
+                <Property Name="CreditType" Type="Edm.String" MaxLength="15"/>
+                <Property Name="ProductType" Type="Edm.String" MaxLength="50"/>
+                <Property Name="BillingCurrency" Type="Edm.String" MaxLength="3"/>
+            </EntityType>
+            <EntityType Name="AttachmentRow" m:HasStream="true">
+                <Key>
+                    <PropertyRef Name="Id"/>
+                </Key>
+                <Property Name="createdAt" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
+                <Property Name="modifiedAt" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
+                <Property Name="Id" Type="Edm.Guid" Nullable="false"/>
+                <Property Name="MediaType" Type="Edm.String"/>
+                <NavigationProperty Name="AttachmentID" Relationship="Reports.AttachmentRow_AttachmentID" FromRole="AttachmentRow" ToRole="Attachment"/>
+                <Property Name="AttachmentID_AttachmentId" Type="Edm.Guid"/>
+                <Property Name="RowId" Type="Edm.Int32"/>
+                <Property Name="AttachmentName" Type="Edm.String" MaxLength="30"/>
+                <Property Name="AttachmentType" Type="Edm.String" MaxLength="10"/>
+                <Property Name="Attachment" Type="Edm.Binary"/>
+                <Property Name="FileName" Type="Edm.String"/>
+                <Property Name="Size" Type="Edm.Int32"/>
+                <Property Name="Url" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="AttachmentPIssue">
+                <Key>
+                    <PropertyRef Name="Id"/>
+                    <PropertyRef Name="ProductIssue_IssueId"/>
+                    <PropertyRef Name="AttachmentID_AttachmentId"/>
+                </Key>
+                <Property Name="createdAt" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
+                <Property Name="modifiedAt" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
+                <Property Name="Id" Type="Edm.Guid" Nullable="false"/>
+                <NavigationProperty Name="ProductIssue" Relationship="Reports.AttachmentPIssue_ProductIssue" FromRole="AttachmentPIssue" ToRole="ProductIssue"/>
+                <Property Name="ProductIssue_IssueId" Type="Edm.Guid" Nullable="false"/>
+                <NavigationProperty Name="AttachmentID" Relationship="Reports.AttachmentPIssue_AttachmentID" FromRole="AttachmentPIssue" ToRole="Attachment"/>
+                <Property Name="AttachmentID_AttachmentId" Type="Edm.Guid" Nullable="false"/>
+            </EntityType>
+            <EntityType Name="ProductIssue">
+                <Key>
+                    <PropertyRef Name="IssueId"/>
+                </Key>
+                <Property Name="createdAt" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
+                <Property Name="modifiedAt" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
+                <Property Name="IssueId" Type="Edm.Guid" Nullable="false"/>
+                <Property Name="IssueCode_Id" Type="Edm.Int32"/>
+                <Property Name="IssueDesc" Type="Edm.String" MaxLength="50"/>
+                <Property Name="Active" Type="Edm.String" MaxLength="1"/>
+                <Property Name="ProductID_Id" Type="Edm.Int32"/>
+            </EntityType>
+            <Association Name="CreditReqHdr_PSInvoiceHdr">
+                <End Role="CreditReqHdr" Type="Reports.CreditReqHdr" Multiplicity="*"/>
+                <End Role="PSInvoiceHdr" Type="Reports.PSInvoiceHdr" Multiplicity="0..1"/>
+                <ReferentialConstraint>
+                    <Principal Role="PSInvoiceHdr">
+                        <PropertyRef Name="PsplInvoice"/>
+                    </Principal>
+                    <Dependent Role="CreditReqHdr">
+                        <PropertyRef Name="PSInvoiceHdr_PsplInvoice"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="CreditReqHdr_Address">
+                <End Role="CreditReqHdr" Type="Reports.CreditReqHdr" Multiplicity="*"/>
+                <End Role="Address" Type="Reports.Address" Multiplicity="0..1"/>
+                <ReferentialConstraint>
+                    <Principal Role="Address">
+                        <PropertyRef Name="Id"/>
+                        <PropertyRef Name="AddressName"/>
+                    </Principal>
+                    <Dependent Role="CreditReqHdr">
+                        <PropertyRef Name="Address_Id"/>
+                        <PropertyRef Name="Address_AddressName"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="CreditReqHdr_AttachmentId">
+                <End Role="CreditReqHdr" Type="Reports.CreditReqHdr" Multiplicity="*"/>
+                <End Role="Attachment" Type="Reports.Attachment" Multiplicity="0..1"/>
+                <ReferentialConstraint>
+                    <Principal Role="Attachment">
+                        <PropertyRef Name="AttachmentId"/>
+                    </Principal>
+                    <Dependent Role="CreditReqHdr">
+                        <PropertyRef Name="AttachmentId_AttachmentId"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="CreditReqHdr_CSR">
+                <End Role="CreditReqHdr" Type="Reports.CreditReqHdr" Multiplicity="*"/>
+                <End Role="User" Type="Reports.User" Multiplicity="0..1"/>
+                <ReferentialConstraint>
+                    <Principal Role="User">
+                        <PropertyRef Name="UserId"/>
+                        <PropertyRef Name="OrgStruEleCode_Id"/>
+                        <PropertyRef Name="DepartmentId_Id"/>
+                    </Principal>
+                    <Dependent Role="CreditReqHdr">
+                        <PropertyRef Name="CSR_UserId"/>
+                        <PropertyRef Name="CSR_OrgStruEleCode_Id"/>
+                        <PropertyRef Name="CSR_DepartmentId_Id"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="CreditReqItem_BTPCRNo">
+                <End Role="CreditReqItem" Type="Reports.CreditReqItem" Multiplicity="*"/>
+                <End Role="CreditReqHdr" Type="Reports.CreditReqHdr" Multiplicity="0..1">
+                    <OnDelete Action="Cascade"/>
+                </End>
+                <ReferentialConstraint>
+                    <Principal Role="CreditReqHdr">
+                        <PropertyRef Name="BTPCRNO"/>
+                        <PropertyRef Name="OrgStrucEleCode_Id"/>
+                    </Principal>
+                    <Dependent Role="CreditReqItem">
+                        <PropertyRef Name="BTPCRNo_BTPCRNO"/>
+                        <PropertyRef Name="BTPCRNo_OrgStrucEleCode_Id"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="ReportSample_CreditReqItem">
+                <End Role="ReportSample" Type="Reports.ReportSample" Multiplicity="1">
+                    <OnDelete Action="Cascade"/>
+                </End>
+                <End Role="CreditReqItem" Type="Reports.CreditReqItem" Multiplicity="*"/>
+            </Association>
+            <Association Name="Report_Submit_to_Under_Review_CreditReqItem">
+                <End Role="Report_Submit_to_Under_Review" Type="Reports.Report_Submit_to_Under_Review" Multiplicity="1">
+                    <OnDelete Action="Cascade"/>
+                </End>
+                <End Role="CreditReqItem" Type="Reports.CreditReqItem" Multiplicity="*"/>
+            </Association>
+            <Association Name="Report_Under_Review_to_Closed_CreditReqItem">
+                <End Role="Report_Under_Review_to_Closed" Type="Reports.Report_Under_Review_to_Closed" Multiplicity="1">
+                    <OnDelete Action="Cascade"/>
+                </End>
+                <End Role="CreditReqItem" Type="Reports.CreditReqItem" Multiplicity="*"/>
+            </Association>
+            <Association Name="Address_RegionId">
+                <End Role="Address" Type="Reports.Address" Multiplicity="*"/>
+                <End Role="Region" Type="Reports.Region" Multiplicity="0..1">
+                    <OnDelete Action="Cascade"/>
+                </End>
+                <ReferentialConstraint>
+                    <Principal Role="Region">
+                        <PropertyRef Name="Id"/>
+                    </Principal>
+                    <Dependent Role="Address">
+                        <PropertyRef Name="RegionId_Id"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="Attachment_CreditReqItem">
+                <End Role="Attachment" Type="Reports.Attachment" Multiplicity="*"/>
+                <End Role="CreditReqItem" Type="Reports.CreditReqItem" Multiplicity="0..1">
+                    <OnDelete Action="Cascade"/>
+                </End>
+                <ReferentialConstraint>
+                    <Principal Role="CreditReqItem">
+                        <PropertyRef Name="BTPCRItem"/>
+                    </Principal>
+                    <Dependent Role="Attachment">
+                        <PropertyRef Name="CreditReqItem_BTPCRItem"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="CRCommit_CRNO">
+                <End Role="CRCommit" Type="Reports.CRCommit" Multiplicity="*"/>
+                <End Role="CreditReqHdr" Type="Reports.CreditReqHdr" Multiplicity="0..1"/>
+                <ReferentialConstraint>
+                    <Principal Role="CreditReqHdr">
+                        <PropertyRef Name="BTPCRNO"/>
+                        <PropertyRef Name="OrgStrucEleCode_Id"/>
+                    </Principal>
+                    <Dependent Role="CRCommit">
+                        <PropertyRef Name="CRNO_BTPCRNO"/>
+                        <PropertyRef Name="CRNO_OrgStrucEleCode_Id"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="CRCommit_CreditReqItem">
+                <End Role="CRCommit" Type="Reports.CRCommit" Multiplicity="*"/>
+                <End Role="CreditReqItem" Type="Reports.CreditReqItem" Multiplicity="0..1">
+                    <OnDelete Action="Cascade"/>
+                </End>
+                <ReferentialConstraint>
+                    <Principal Role="CreditReqItem">
+                        <PropertyRef Name="BTPCRItem"/>
+                    </Principal>
+                    <Dependent Role="CRCommit">
+                        <PropertyRef Name="CreditReqItem_BTPCRItem"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="PSInvoiceItems_PsplInvoice">
+                <End Role="PSInvoiceItems" Type="Reports.PSInvoiceItems" Multiplicity="*"/>
+                <End Role="PSInvoiceHdr" Type="Reports.PSInvoiceHdr" Multiplicity="0..1">
+                    <OnDelete Action="Cascade"/>
+                </End>
+                <ReferentialConstraint>
+                    <Principal Role="PSInvoiceHdr">
+                        <PropertyRef Name="PsplInvoice"/>
+                    </Principal>
+                    <Dependent Role="PSInvoiceItems">
+                        <PropertyRef Name="PsplInvoice_PsplInvoice"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="AttachmentRow_AttachmentID">
+                <End Role="AttachmentRow" Type="Reports.AttachmentRow" Multiplicity="*"/>
+                <End Role="Attachment" Type="Reports.Attachment" Multiplicity="0..1">
+                    <OnDelete Action="Cascade"/>
+                </End>
+                <ReferentialConstraint>
+                    <Principal Role="Attachment">
+                        <PropertyRef Name="AttachmentId"/>
+                    </Principal>
+                    <Dependent Role="AttachmentRow">
+                        <PropertyRef Name="AttachmentID_AttachmentId"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="AttachmentPIssue_ProductIssue">
+                <End Role="AttachmentPIssue" Type="Reports.AttachmentPIssue" Multiplicity="*"/>
+                <End Role="ProductIssue" Type="Reports.ProductIssue" Multiplicity="0..1"/>
+                <ReferentialConstraint>
+                    <Principal Role="ProductIssue">
+                        <PropertyRef Name="IssueId"/>
+                    </Principal>
+                    <Dependent Role="AttachmentPIssue">
+                        <PropertyRef Name="ProductIssue_IssueId"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="AttachmentPIssue_AttachmentID">
+                <End Role="AttachmentPIssue" Type="Reports.AttachmentPIssue" Multiplicity="*"/>
+                <End Role="Attachment" Type="Reports.Attachment" Multiplicity="0..1">
+                    <OnDelete Action="Cascade"/>
+                </End>
+                <ReferentialConstraint>
+                    <Principal Role="Attachment">
+                        <PropertyRef Name="AttachmentId"/>
+                    </Principal>
+                    <Dependent Role="AttachmentPIssue">
+                        <PropertyRef Name="AttachmentID_AttachmentId"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Annotations Target="Reports.CreditReqHdr/createdAt" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                <Annotation Term="Core.Immutable" Bool="true"/>
+                <Annotation Term="Core.Computed" Bool="true"/>
+                <Annotation Term="Common.Label" String="Created On"/>
+            </Annotations>
+            <Annotations Target="Reports.CreditReqHdr/createdBy" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                <Annotation Term="Core.Immutable" Bool="true"/>
+                <Annotation Term="Core.Computed" Bool="true"/>
+                <Annotation Term="Core.Description" String="User's unique ID"/>
+                <Annotation Term="Common.Label" String="Created By"/>
+            </Annotations>
+            <Annotations Target="Reports.CreditReqHdr/modifiedAt" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                <Annotation Term="Core.Computed" Bool="true"/>
+                <Annotation Term="Common.Label" String="Changed On"/>
+            </Annotations>
+            <Annotations Target="Reports.CreditReqHdr/modifiedBy" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                <Annotation Term="Core.Computed" Bool="true"/>
+                <Annotation Term="Core.Description" String="User's unique ID"/>
+                <Annotation Term="Common.Label" String="Changed By"/>
+            </Annotations>
+            <Annotations Target="Reports.CreditReqItem" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="UI.LineItem" Qualifier="refitems">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Material"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Description"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="UOM"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="PSInvoiceQty"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Total"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Qty"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="CRTypeDesc"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="ApproveQty"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="Reports.CreditReqItem/createdAt" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                <Annotation Term="Core.Immutable" Bool="true"/>
+                <Annotation Term="Core.Computed" Bool="true"/>
+                <Annotation Term="Common.Label" String="Created On"/>
+            </Annotations>
+            <Annotations Target="Reports.CreditReqItem/createdBy" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                <Annotation Term="Core.Immutable" Bool="true"/>
+                <Annotation Term="Core.Computed" Bool="true"/>
+                <Annotation Term="Core.Description" String="User's unique ID"/>
+                <Annotation Term="Common.Label" String="Created By"/>
+            </Annotations>
+            <Annotations Target="Reports.CreditReqItem/modifiedAt" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                <Annotation Term="Core.Computed" Bool="true"/>
+                <Annotation Term="Common.Label" String="Changed On"/>
+            </Annotations>
+            <Annotations Target="Reports.CreditReqItem/modifiedBy" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                <Annotation Term="Core.Computed" Bool="true"/>
+                <Annotation Term="Core.Description" String="User's unique ID"/>
+                <Annotation Term="Common.Label" String="Changed By"/>
+            </Annotations>
+            <Annotations Target="Reports.Region/createdAt" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                <Annotation Term="Core.Immutable" Bool="true"/>
+                <Annotation Term="Core.Computed" Bool="true"/>
+                <Annotation Term="Common.Label" String="Created On"/>
+            </Annotations>
+            <Annotations Target="Reports.Region/createdBy" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                <Annotation Term="Core.Immutable" Bool="true"/>
+                <Annotation Term="Core.Computed" Bool="true"/>
+                <Annotation Term="Core.Description" String="User's unique ID"/>
+                <Annotation Term="Common.Label" String="Created By"/>
+            </Annotations>
+            <Annotations Target="Reports.Region/modifiedAt" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                <Annotation Term="Core.Computed" Bool="true"/>
+                <Annotation Term="Common.Label" String="Changed On"/>
+            </Annotations>
+            <Annotations Target="Reports.Region/modifiedBy" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                <Annotation Term="Core.Computed" Bool="true"/>
+                <Annotation Term="Core.Description" String="User's unique ID"/>
+                <Annotation Term="Common.Label" String="Changed By"/>
+            </Annotations>
+            <Annotations Target="Reports.User/createdAt" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                <Annotation Term="Core.Immutable" Bool="true"/>
+                <Annotation Term="Core.Computed" Bool="true"/>
+                <Annotation Term="Common.Label" String="Created On"/>
+            </Annotations>
+            <Annotations Target="Reports.User/createdBy" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                <Annotation Term="Core.Immutable" Bool="true"/>
+                <Annotation Term="Core.Computed" Bool="true"/>
+                <Annotation Term="Core.Description" String="User's unique ID"/>
+                <Annotation Term="Common.Label" String="Created By"/>
+            </Annotations>
+            <Annotations Target="Reports.User/modifiedAt" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                <Annotation Term="Core.Computed" Bool="true"/>
+                <Annotation Term="Common.Label" String="Changed On"/>
+            </Annotations>
+            <Annotations Target="Reports.User/modifiedBy" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                <Annotation Term="Core.Computed" Bool="true"/>
+                <Annotation Term="Core.Description" String="User's unique ID"/>
+                <Annotation Term="Common.Label" String="Changed By"/>
+            </Annotations>
+            <Annotations Target="Reports.ReportPara/createdAt" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                <Annotation Term="Core.Immutable" Bool="true"/>
+                <Annotation Term="Core.Computed" Bool="true"/>
+                <Annotation Term="Common.Label" String="Created On"/>
+            </Annotations>
+            <Annotations Target="Reports.ReportPara/createdBy" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                <Annotation Term="Core.Immutable" Bool="true"/>
+                <Annotation Term="Core.Computed" Bool="true"/>
+                <Annotation Term="Core.Description" String="User's unique ID"/>
+                <Annotation Term="Common.Label" String="Created By"/>
+            </Annotations>
+            <Annotations Target="Reports.ReportPara/modifiedAt" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                <Annotation Term="Core.Computed" Bool="true"/>
+                <Annotation Term="Common.Label" String="Changed On"/>
+            </Annotations>
+            <Annotations Target="Reports.ReportPara/modifiedBy" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                <Annotation Term="Core.Computed" Bool="true"/>
+                <Annotation Term="Core.Description" String="User's unique ID"/>
+                <Annotation Term="Common.Label" String="Changed By"/>
+            </Annotations>
+            <Annotations Target="Reports.ReportSample/SubmissionDiff" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Core.Computed" Bool="true"/>
+            </Annotations>
+            <Annotations Target="Reports.ReportSample/ClosedDiff" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Core.Computed" Bool="true"/>
+            </Annotations>
+            <Annotations Target="Reports.ReportSample/CancelledDiff" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Core.Computed" Bool="true"/>
+            </Annotations>
+            <Annotations Target="Reports.ReportSample/UserID" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Core.Computed" Bool="true"/>
+            </Annotations>
+            <Annotations Target="Reports.Report_Submit_to_Under_Review" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="UI.PresentationVariant" Qualifier="UnderReview">
+                    <Record Type="UI.PresentationVariantType">
+                        <PropertyValue Property="Text" String="Submitted to UnderReview"/>
+                        <PropertyValue Property="SortOrder">
+                            <Collection>
+                                <Record Type="Common.SortOrderType">
+                                    <PropertyValue Property="Property" PropertyPath="CreatedDateTime"/>
+                                    <PropertyValue Property="Descending" Bool="true"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.LineItem" Qualifier="refitemsUnderReview">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="BTPCRNO"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="SalesOrder"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="StoreID"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="FranchiseID"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="PsplInvoice"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="InvoiceDate"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="CreatedDateTime"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.SelectionFields">
+                    <Collection>
+                        <PropertyPath>BTPCRNO</PropertyPath>
+                        <PropertyPath>CreatedDateTime</PropertyPath>
+                        <PropertyPath>PsplInvoice</PropertyPath>
+                        <PropertyPath>InvoiceDate</PropertyPath>
+                        <PropertyPath>SCCName</PropertyPath>
+                        <PropertyPath>StoreID</PropertyPath>
+                        <PropertyPath>FranchiseID</PropertyPath>
+                        <PropertyPath>StatusDescription</PropertyPath>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.FieldGroup" Qualifier="HeaderSCC">
+                    <Record Type="UI.FieldGroupType">
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="SCCName"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="StoreID"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.FieldGroup" Qualifier="HeaderCR">
+                    <Record Type="UI.FieldGroupType">
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="BTPCRNO"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="StatusDescription"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="CreatedDateTime"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.FieldGroup" Qualifier="HeaderInvoice">
+                    <Record Type="UI.FieldGroupType">
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="PsplInvoice"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="SalesOrder"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.HeaderFacets">
+                    <Collection>
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="Label" String="General Information"/>
+                            <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#HeaderSCC"/>
+                            <PropertyValue Property="ID" String="reffac3"/>
+                        </Record>
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="Label" String="Credit Request Information"/>
+                            <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#HeaderCR"/>
+                            <PropertyValue Property="ID" String="reffac2"/>
+                        </Record>
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="Label" String="Invoice Information"/>
+                            <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#HeaderInvoice"/>
+                            <PropertyValue Property="ID" String="reffac1"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.Facets">
+                    <Collection>
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="Label" String="Invoice Items"/>
+                            <PropertyValue Property="Target" AnnotationPath="CreditReqItem/@UI.LineItem#refitems"/>
+                            <PropertyValue Property="ID" String="ItemId"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="Reports.EntityContainer/Report_Submit_to_Under_Review" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="UI.PresentationVariant" Qualifier="UnderReview">
+                    <Record Type="UI.PresentationVariantType">
+                        <PropertyValue Property="Text" String="Submitted to UnderReview"/>
+                        <PropertyValue Property="SortOrder">
+                            <Collection>
+                                <Record Type="Common.SortOrderType">
+                                    <PropertyValue Property="Property" PropertyPath="CreatedDateTime"/>
+                                    <PropertyValue Property="Descending" Bool="true"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="Reports.Report_Submit_to_Under_Review/StoreID" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.Label" String="Store ID"/>
+            </Annotations>
+            <Annotations Target="Reports.Report_Submit_to_Under_Review/FranchiseID" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.Label" String="Fran. Code"/>
+            </Annotations>
+            <Annotations Target="Reports.Report_Submit_to_Under_Review/PsplInvoice" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.Label" String="Invoice"/>
+            </Annotations>
+            <Annotations Target="Reports.Report_Submit_to_Under_Review/InvoiceDate" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.Label" String="Invoice Date"/>
+            </Annotations>
+            <Annotations Target="Reports.Report_Submit_to_Under_Review/SalesOrder" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.Label" String="Sales Order No."/>
+            </Annotations>
+            <Annotations Target="Reports.Report_Submit_to_Under_Review/BTPCRNO" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.Label" String="CR No"/>
+            </Annotations>
+            <Annotations Target="Reports.Report_Submit_to_Under_Review/StatusDescription" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.Label" String="Status"/>
+            </Annotations>
+            <Annotations Target="Reports.Report_Submit_to_Under_Review/CreatedDateTime" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.Label" String="CR Creation Date"/>
+            </Annotations>
+            <Annotations Target="Reports.Report_Submit_to_Under_Review/SubmissionDiff" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Core.Computed" Bool="true"/>
+            </Annotations>
+            <Annotations Target="Reports.Report_Submit_to_Under_Review/ClosedDiff" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Core.Computed" Bool="true"/>
+            </Annotations>
+            <Annotations Target="Reports.Report_Submit_to_Under_Review/CancelledDiff" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Core.Computed" Bool="true"/>
+            </Annotations>
+            <Annotations Target="Reports.Report_Under_Review_to_Closed" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="UI.PresentationVariant" Qualifier="Closed">
+                    <Record Type="UI.PresentationVariantType">
+                        <PropertyValue Property="Text" String="UnderReview to Closed"/>
+                        <PropertyValue Property="SortOrder">
+                            <Collection>
+                                <Record Type="Common.SortOrderType">
+                                    <PropertyValue Property="Property" PropertyPath="CreatedDateTime"/>
+                                    <PropertyValue Property="Descending" Bool="true"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.LineItem" Qualifier="refitemsClosed">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="BTPCRNO"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="SalesOrder"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="StoreID"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="FranchiseID"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="PsplInvoice"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="CreatedDateTime"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="StatusDescription"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.SelectionFields">
+                    <Collection>
+                        <PropertyPath>BTPCRNO</PropertyPath>
+                        <PropertyPath>CreatedDateTime</PropertyPath>
+                        <PropertyPath>PsplInvoice</PropertyPath>
+                        <PropertyPath>InvoiceDate</PropertyPath>
+                        <PropertyPath>SCCName</PropertyPath>
+                        <PropertyPath>StoreID</PropertyPath>
+                        <PropertyPath>FranchiseID</PropertyPath>
+                        <PropertyPath>StatusDescription</PropertyPath>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.FieldGroup" Qualifier="HeaderSCC">
+                    <Record Type="UI.FieldGroupType">
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="SCCName"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="StoreID"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.FieldGroup" Qualifier="HeaderCR">
+                    <Record Type="UI.FieldGroupType">
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="BTPCRNO"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="StatusDescription"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="CreatedDateTime"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.FieldGroup" Qualifier="HeaderInvoice">
+                    <Record Type="UI.FieldGroupType">
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="PsplInvoice"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="SalesOrder"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.HeaderFacets">
+                    <Collection>
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="Label" String="General Information"/>
+                            <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#HeaderSCC"/>
+                            <PropertyValue Property="ID" String="reffac3"/>
+                        </Record>
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="Label" String="Credit Request Information"/>
+                            <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#HeaderCR"/>
+                            <PropertyValue Property="ID" String="reffac2"/>
+                        </Record>
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="Label" String="Invoice Information"/>
+                            <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#HeaderInvoice"/>
+                            <PropertyValue Property="ID" String="reffac1"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.Facets">
+                    <Collection>
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="Label" String="Invoice Items"/>
+                            <PropertyValue Property="Target" AnnotationPath="CreditReqItem/@UI.LineItem#refitems"/>
+                            <PropertyValue Property="ID" String="ItemId"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="Reports.EntityContainer/Report_Under_Review_to_Closed" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="UI.PresentationVariant" Qualifier="Closed">
+                    <Record Type="UI.PresentationVariantType">
+                        <PropertyValue Property="Text" String="UnderReview to Closed"/>
+                        <PropertyValue Property="SortOrder">
+                            <Collection>
+                                <Record Type="Common.SortOrderType">
+                                    <PropertyValue Property="Property" PropertyPath="CreatedDateTime"/>
+                                    <PropertyValue Property="Descending" Bool="true"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="Reports.Report_Under_Review_to_Closed/SubmissionDiff" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Core.Computed" Bool="true"/>
+            </Annotations>
+            <Annotations Target="Reports.Report_Under_Review_to_Closed/ClosedDiff" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Core.Computed" Bool="true"/>
+            </Annotations>
+            <Annotations Target="Reports.Report_Under_Review_to_Closed/CancelledDiff" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Core.Computed" Bool="true"/>
+            </Annotations>
+            <Annotations Target="Reports.PSInvoiceHdr/createdAt" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                <Annotation Term="Core.Immutable" Bool="true"/>
+                <Annotation Term="Core.Computed" Bool="true"/>
+                <Annotation Term="Common.Label" String="Created On"/>
+            </Annotations>
+            <Annotations Target="Reports.PSInvoiceHdr/createdBy" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                <Annotation Term="Core.Immutable" Bool="true"/>
+                <Annotation Term="Core.Computed" Bool="true"/>
+                <Annotation Term="Core.Description" String="User's unique ID"/>
+                <Annotation Term="Common.Label" String="Created By"/>
+            </Annotations>
+            <Annotations Target="Reports.PSInvoiceHdr/modifiedAt" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                <Annotation Term="Core.Computed" Bool="true"/>
+                <Annotation Term="Common.Label" String="Changed On"/>
+            </Annotations>
+            <Annotations Target="Reports.PSInvoiceHdr/modifiedBy" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                <Annotation Term="Core.Computed" Bool="true"/>
+                <Annotation Term="Core.Description" String="User's unique ID"/>
+                <Annotation Term="Common.Label" String="Changed By"/>
+            </Annotations>
+            <Annotations Target="Reports.Address/createdAt" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                <Annotation Term="Core.Immutable" Bool="true"/>
+                <Annotation Term="Core.Computed" Bool="true"/>
+                <Annotation Term="Common.Label" String="Created On"/>
+            </Annotations>
+            <Annotations Target="Reports.Address/createdBy" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                <Annotation Term="Core.Immutable" Bool="true"/>
+                <Annotation Term="Core.Computed" Bool="true"/>
+                <Annotation Term="Core.Description" String="User's unique ID"/>
+                <Annotation Term="Common.Label" String="Created By"/>
+            </Annotations>
+            <Annotations Target="Reports.Address/modifiedAt" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                <Annotation Term="Core.Computed" Bool="true"/>
+                <Annotation Term="Common.Label" String="Changed On"/>
+            </Annotations>
+            <Annotations Target="Reports.Address/modifiedBy" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                <Annotation Term="Core.Computed" Bool="true"/>
+                <Annotation Term="Core.Description" String="User's unique ID"/>
+                <Annotation Term="Common.Label" String="Changed By"/>
+            </Annotations>
+            <Annotations Target="Reports.Attachment/createdAt" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                <Annotation Term="Core.Immutable" Bool="true"/>
+                <Annotation Term="Core.Computed" Bool="true"/>
+                <Annotation Term="Common.Label" String="Created On"/>
+            </Annotations>
+            <Annotations Target="Reports.Attachment/createdBy" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                <Annotation Term="Core.Immutable" Bool="true"/>
+                <Annotation Term="Core.Computed" Bool="true"/>
+                <Annotation Term="Core.Description" String="User's unique ID"/>
+                <Annotation Term="Common.Label" String="Created By"/>
+            </Annotations>
+            <Annotations Target="Reports.Attachment/modifiedAt" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                <Annotation Term="Core.Computed" Bool="true"/>
+                <Annotation Term="Common.Label" String="Changed On"/>
+            </Annotations>
+            <Annotations Target="Reports.Attachment/modifiedBy" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                <Annotation Term="Core.Computed" Bool="true"/>
+                <Annotation Term="Core.Description" String="User's unique ID"/>
+                <Annotation Term="Common.Label" String="Changed By"/>
+            </Annotations>
+            <Annotations Target="Reports.CRCommit/createdAt" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                <Annotation Term="Core.Immutable" Bool="true"/>
+                <Annotation Term="Core.Computed" Bool="true"/>
+                <Annotation Term="Common.Label" String="Created On"/>
+            </Annotations>
+            <Annotations Target="Reports.CRCommit/createdBy" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                <Annotation Term="Core.Immutable" Bool="true"/>
+                <Annotation Term="Core.Computed" Bool="true"/>
+                <Annotation Term="Core.Description" String="User's unique ID"/>
+                <Annotation Term="Common.Label" String="Created By"/>
+            </Annotations>
+            <Annotations Target="Reports.CRCommit/modifiedAt" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                <Annotation Term="Core.Computed" Bool="true"/>
+                <Annotation Term="Common.Label" String="Changed On"/>
+            </Annotations>
+            <Annotations Target="Reports.CRCommit/modifiedBy" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                <Annotation Term="Core.Computed" Bool="true"/>
+                <Annotation Term="Core.Description" String="User's unique ID"/>
+                <Annotation Term="Common.Label" String="Changed By"/>
+            </Annotations>
+            <Annotations Target="Reports.PSInvoiceItems/createdAt" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                <Annotation Term="Core.Immutable" Bool="true"/>
+                <Annotation Term="Core.Computed" Bool="true"/>
+                <Annotation Term="Common.Label" String="Created On"/>
+            </Annotations>
+            <Annotations Target="Reports.PSInvoiceItems/createdBy" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                <Annotation Term="Core.Immutable" Bool="true"/>
+                <Annotation Term="Core.Computed" Bool="true"/>
+                <Annotation Term="Core.Description" String="User's unique ID"/>
+                <Annotation Term="Common.Label" String="Created By"/>
+            </Annotations>
+            <Annotations Target="Reports.PSInvoiceItems/modifiedAt" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                <Annotation Term="Core.Computed" Bool="true"/>
+                <Annotation Term="Common.Label" String="Changed On"/>
+            </Annotations>
+            <Annotations Target="Reports.PSInvoiceItems/modifiedBy" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                <Annotation Term="Core.Computed" Bool="true"/>
+                <Annotation Term="Core.Description" String="User's unique ID"/>
+                <Annotation Term="Common.Label" String="Changed By"/>
+            </Annotations>
+            <Annotations Target="Reports.AttachmentRow/createdAt" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                <Annotation Term="Core.Immutable" Bool="true"/>
+                <Annotation Term="Core.Computed" Bool="true"/>
+                <Annotation Term="Common.Label" String="Created On"/>
+            </Annotations>
+            <Annotations Target="Reports.AttachmentRow/createdBy" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                <Annotation Term="Core.Immutable" Bool="true"/>
+                <Annotation Term="Core.Computed" Bool="true"/>
+                <Annotation Term="Core.Description" String="User's unique ID"/>
+                <Annotation Term="Common.Label" String="Created By"/>
+            </Annotations>
+            <Annotations Target="Reports.AttachmentRow/modifiedAt" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                <Annotation Term="Core.Computed" Bool="true"/>
+                <Annotation Term="Common.Label" String="Changed On"/>
+            </Annotations>
+            <Annotations Target="Reports.AttachmentRow/modifiedBy" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                <Annotation Term="Core.Computed" Bool="true"/>
+                <Annotation Term="Core.Description" String="User's unique ID"/>
+                <Annotation Term="Common.Label" String="Changed By"/>
+            </Annotations>
+            <Annotations Target="Reports.AttachmentRow/MediaType" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Core.IsMediaType" Bool="true"/>
+            </Annotations>
+            <Annotations Target="Reports.AttachmentPIssue/createdAt" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                <Annotation Term="Core.Immutable" Bool="true"/>
+                <Annotation Term="Core.Computed" Bool="true"/>
+                <Annotation Term="Common.Label" String="Created On"/>
+            </Annotations>
+            <Annotations Target="Reports.AttachmentPIssue/createdBy" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                <Annotation Term="Core.Immutable" Bool="true"/>
+                <Annotation Term="Core.Computed" Bool="true"/>
+                <Annotation Term="Core.Description" String="User's unique ID"/>
+                <Annotation Term="Common.Label" String="Created By"/>
+            </Annotations>
+            <Annotations Target="Reports.AttachmentPIssue/modifiedAt" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                <Annotation Term="Core.Computed" Bool="true"/>
+                <Annotation Term="Common.Label" String="Changed On"/>
+            </Annotations>
+            <Annotations Target="Reports.AttachmentPIssue/modifiedBy" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                <Annotation Term="Core.Computed" Bool="true"/>
+                <Annotation Term="Core.Description" String="User's unique ID"/>
+                <Annotation Term="Common.Label" String="Changed By"/>
+            </Annotations>
+            <Annotations Target="Reports.ProductIssue/createdAt" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                <Annotation Term="Core.Immutable" Bool="true"/>
+                <Annotation Term="Core.Computed" Bool="true"/>
+                <Annotation Term="Common.Label" String="Created On"/>
+            </Annotations>
+            <Annotations Target="Reports.ProductIssue/createdBy" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                <Annotation Term="Core.Immutable" Bool="true"/>
+                <Annotation Term="Core.Computed" Bool="true"/>
+                <Annotation Term="Core.Description" String="User's unique ID"/>
+                <Annotation Term="Common.Label" String="Created By"/>
+            </Annotations>
+            <Annotations Target="Reports.ProductIssue/modifiedAt" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                <Annotation Term="Core.Computed" Bool="true"/>
+                <Annotation Term="Common.Label" String="Changed On"/>
+            </Annotations>
+            <Annotations Target="Reports.ProductIssue/modifiedBy" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                <Annotation Term="Core.Computed" Bool="true"/>
+                <Annotation Term="Core.Description" String="User's unique ID"/>
+                <Annotation Term="Common.Label" String="Changed By"/>
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

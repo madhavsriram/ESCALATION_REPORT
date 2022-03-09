@@ -158,7 +158,7 @@
                     "list": true,
                     "settings": {
                         "condensedTableLayout": true,
-                        "smartVariantManagement": true,
+                        "smartVariantManagement": false,
                         "enableTableFilterInPageVariant": true,
                         "variantManagementHidden": true,
                         "subTitleIfVariantMgmtHidden": "{{Escalation Report}}",

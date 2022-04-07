@@ -100,6 +100,49 @@ sap.ui.define(
           });
         }, 
         */
+       onPressCRlist: function (oEvt) {
+        this.BTPCRNO = oEvt
+          .getSource()
+          .getBindingContext()
+          .getObject().BTPCRNO;
+    
+        if (!this._ListNoofCRsDialog) {
+          this._ListNoofCRsDialog = sap.ui.xmlfragment(
+            "escalationreportscc.ext.fragments.ListNoofCR",
+            this
+          );
+          this.getView().addDependent(this._ListNoofCRsDialog);
+        }
+        this._ListNoofCRsDialog.open();
+        var sDialog = sap.ui.getCore().byId("NoofCRPopup");
+        sDialog.setTitle("Selected Credit Request No" + " " + this.BTPCRNO);
+      },
+    
+      onNooFCRClose: function () {
+        this._ListNoofCRsDialog.close();
+      },
+    
+      onNoofCRNavigate: function (oEvent) {
+          var that=this;
+        if (sap.ushell && sap.ushell.Container && sap.ushell.Container.getService) {
+          // var oCrossAppNav = sap.ushell.Container.getService(
+          //   "CrossApplicationNavigation"
+          // );
+          // oCrossAppNav.toExternal({
+          //   target: { semanticObject: "storecrmanagement", action: "manage" },
+          //   params: { PsplInvoice: [this.InvoiceNo] },
+          // });
+          var oCrossAppNav = sap.ushell.Container.getServiceAsync(
+              "CrossApplicationNavigation"
+            );
+            oCrossAppNav.then(function(obj) {
+               obj.toExternal({
+              target: { semanticObject: "scccrmanagement", action: "manage" },
+              params: { PsplInvoice: [that.InvoiceNo] },
+            });
+            })
+        }
+      },
       };
     }
   );

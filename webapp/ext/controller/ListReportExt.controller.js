@@ -18,6 +18,7 @@ sap.ui.define(
   /*      getCustomAppStateDataExtension: function (oCustomData) {
           //the content of the custom field will be stored in the app state, so that it can be restored later, for example after a back navigation.
           //The developer has to ensure that the content of the field is stored in the object that is passed to this method.
+          //test
           if (oCustomData) {
             var oCustomField1 = this.oView.byId("ExtYear");
             if (oCustomField1) {

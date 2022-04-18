@@ -3,7 +3,7 @@
     <Column id="textColumn1" width="10rem">
         <Text text="Credit Request No"/>
         <customData>
-            <core:CustomData key="p13nData" value="\{&quot;columnKey&quot;: &quot;CustomColumn1&quot;, &quot;columnIndex&quot;: &quot;101&quot;, &quot;leadingProperty&quot;: &quot;NOOFCR&quot;}"/>
+            <core:CustomData key="p13nData" value="\{&quot;columnKey&quot;: &quot;CustomColumn1&quot;, &quot;columnIndex&quot;: &quot;2&quot;, &quot;leadingProperty&quot;: &quot;NOOFCR&quot;}"/>
         </customData>
     </Column>
 </core:FragmentDefinition>

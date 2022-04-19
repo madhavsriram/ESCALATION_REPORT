@@ -132,7 +132,7 @@
             "extensions": {
                 "sap.ui.viewExtensions": {
                     "sap.suite.ui.generic.template.ListReport.view.ListReport": {
-                       "ResponsiveTableColumnsExtension|Report_Submit_to_Under_Review|1": {
+                        "ResponsiveTableColumnsExtension|Report_Submit_to_Under_Review|1": {
                             "className": "sap.ui.core.Fragment",
                             "fragmentName": "escalationreportscc.ext.fragments.CRColumn",
                             "type": "XML"
@@ -157,8 +157,20 @@
                 },
                 "sap.ui.controllerExtensions": {
                     "sap.suite.ui.generic.template.ListReport.view.ListReport": {
-                        
                         "controllerName": "escalationreportscc.ext.controller.ListReportExt"
+                    },
+                    "sap.suite.ui.generic.template.ObjectPage.view.Details": {
+                        "controllerName": "escalationreportscc.ext.controller.ObjectPageExt",
+                        "sap.ui.generic.app": {
+                            "CreditReqHdr": {
+                                "EntitySet": "CreditReqHdr",
+                                "Header": {
+                                    "Actions": {
+                                   
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -235,7 +247,7 @@
                         "component": {
                             "name": "sap.suite.ui.generic.template.ObjectPage"
                         }
-                    }                    
+                    }
                 }
             }
         }

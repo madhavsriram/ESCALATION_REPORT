@@ -14,6 +14,7 @@ sap.ui.define(
           this.getView().byId("escalationreportscc::sap.suite.ui.generic.template.ListReport.view.ListReport::Report_Submit_to_Under_Review--listReport-1").setSmartVariant();
           this.getView().byId("escalationreportscc::sap.suite.ui.generic.template.ListReport.view.ListReport::Report_Submit_to_Under_Review--listReport-2").setSmartVariant();
           this.getView().byId("escalationreportscc::sap.suite.ui.generic.template.ListReport.view.ListReport::Report_Submit_to_Under_Review--listReportFilter").setPersistencyKey(true);  
+          this.getView().byId("escalationreportscc::sap.suite.ui.generic.template.ListReport.view.ListReport::Report_Submit_to_Under_Review--template::Share").setVisible(false);
       },
   /*      getCustomAppStateDataExtension: function (oCustomData) {
           //the content of the custom field will be stored in the app state, so that it can be restored later, for example after a back navigation.

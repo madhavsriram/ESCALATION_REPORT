@@ -103,6 +103,7 @@ sap.ui.define(
         }, 
         */
        onPressCRlist: function (oEvt) {
+           var that=this;
         this.BTPCRNO = oEvt
           .getSource()
           .getBindingContext()

@@ -108,16 +108,17 @@ sap.ui.define(
           .getBindingContext()
           .getObject().BTPCRNO;
     
-        if (!this._ListNoofCRsDialog) {
-          this._ListNoofCRsDialog = sap.ui.xmlfragment(
-            "escalationreportscc.ext.fragments.ListNoofCR",
-            this
-          );
-          this.getView().addDependent(this._ListNoofCRsDialog);
-        }
-        this._ListNoofCRsDialog.open();
-        var sDialog = sap.ui.getCore().byId("NoofCRPopup");
-        sDialog.setTitle("Selected Credit Request No" + " " + this.BTPCRNO);
+          this.onNoofCRNavigate();
+        // if (!this._ListNoofCRsDialog) {
+        //   this._ListNoofCRsDialog = sap.ui.xmlfragment(
+        //     "escalationreportscc.ext.fragments.ListNoofCR",
+        //     this
+        //   );
+        //   this.getView().addDependent(this._ListNoofCRsDialog);
+        // }
+        // this._ListNoofCRsDialog.open();
+        // var sDialog = sap.ui.getCore().byId("NoofCRPopup");
+        // sDialog.setTitle("Selected Credit Request No" + " " + this.BTPCRNO);
       },
     
       onNooFCRClose: function () {

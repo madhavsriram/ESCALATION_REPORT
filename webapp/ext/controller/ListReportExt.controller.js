@@ -143,7 +143,7 @@ sap.ui.define(
             oCrossAppNav.then(function(obj) {
                obj.toExternal({
               target: { semanticObject: "scccrmanagement", action: "manage" },
-              params: { BTPCRNO: [that.BTPCRNO] },
+              params: { Trail: [that.BTPCRNO] },
             });
             })
         }

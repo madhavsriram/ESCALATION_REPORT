@@ -3,11 +3,15 @@
     "sap.app": {
         "id": "escalationreportscc",
         "type": "application",
-        "i18n": "i18n/i18n.properties",
+        "i18n": {
+            "bundleUrl": "i18n/i18n.properties",
+             "supportedLocales": ["en"],
+              "fallbackLocale": "en"
+          },
         "applicationVersion": {
             "version": "1.0.0"
         },
-        "title": "{{appTitle}}",
+        "title": "Escalation Report",
         "description": "{{appDescription}}",
         "tags": {
             "keywords": []
@@ -46,8 +50,8 @@
                     },
                     "semanticObject": "EscalationReport",
                     "action": "Display",
-                    "title": "{{flpTitle}}",
-                    "subTitle": "{{flpSubtitle}}",
+                    "title": "Escalation Report",
+                    "subTitle": "For SCC",
                     "icon": ""
                 }
             }
@@ -97,12 +101,12 @@
         "models": {
             "i18n": {
                 "type": "sap.ui.model.resource.ResourceModel",
-                "uri": "i18n/i18n.properties"
-            },
-            "@i18n": {
-                "type": "sap.ui.model.resource.ResourceModel",
-                "uri": "i18n/i18n.properties"
-            },
+                   "settings": {
+                        "bundleUrl": "i18n/i18n.properties",
+                        "supportedLocales": ["en"],
+                        "fallbackLocale": "en"
+                    }        
+              },
             "i18n|sap.suite.ui.generic.template.ListReport|Report_Submit_to_Under_Review": {
                 "type": "sap.ui.model.resource.ResourceModel",
                 "uri": "i18n/ListReport/Report_Submit_to_Under_Review/i18n.properties"
@@ -265,5 +269,8 @@
     "sap.cloud": {
         "public": true,
         "service": "escalationreportscc"
-    }
+    },
+     "sap.platform.cf": {
+        "ui5VersionNumber": "1.96.0"
+       }
 }
